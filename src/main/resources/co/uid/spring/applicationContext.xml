@@ -14,9 +14,9 @@
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>file:${user.home}/thumanConf/main.properties</value>
-                <value>file:${user.home}/thumanConf/jdbc.properties</value>
-                <value>file:${user.home}/thumanConf/neo4j.properties</value>
+                <!--<value>file:${user.home}/thumanConf/main.properties</value>-->
+                <!--<value>file:${user.home}/thumanConf/jdbc.properties</value>-->
+                <!--<value>file:${user.home}/thumanConf/neo4j.properties</value>-->
             </list>
         </property>
     </bean>
@@ -24,10 +24,10 @@
     <!-- Activate Spring Data Neo4j repository support -->
     <neo4j:repositories base-package="co.uid.repository"/>
 
-    <!--<neo4j:config graphDatabaseService="graphDatabaseService"/>-->
-    <!--<bean id="graphDatabaseService" class="org.springframework.data.neo4j.rest.SpringRestGraphDatabase">-->
-        <!--<constructor-arg index="0" value="${neo4j.serverUrl}" />-->
-    <!--</bean>-->
+    <neo4j:config graphDatabaseService="graphDatabaseService"/>
+    <bean id="graphDatabaseService" class="org.springframework.data.neo4j.rest.SpringRestGraphDatabase">
+        <constructor-arg index="0" value="http://localhost:7474/db/data/" />
+    </bean>
 
     <!--Localization-->
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">

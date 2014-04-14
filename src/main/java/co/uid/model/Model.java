@@ -5,5 +5,5 @@ package co.uid.model;
  *         Date: 29.03.2014
  *         Time: 12:21
  */
-public class IModel {
+public interface Model {
 }

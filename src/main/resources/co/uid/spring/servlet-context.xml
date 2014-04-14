@@ -36,7 +36,7 @@
                     <!--<beans:property name="prefix" value="/WEB-INF/view/"/>-->
                     <!--<beans:property name="suffix" value=".jsp"/>-->
                 <!--</beans:bean>-->
-                <beans:ref local="closureTemplateViewResolver"/>
+                <!--<beans:ref local="closureTemplateViewResolver"/>-->
             </beans:list>
         </beans:property>
         <beans:property name="defaultViews">
@@ -46,18 +46,18 @@
         </beans:property>
     </beans:bean>
 
-    <beans:bean id="closureTemplateConfigurer"
-          class="co.uid.system.ClosureTemplate.ClosureTemplateConfigurer">
-        <beans:property name="templatesLocation" value="/WEB-INF/templates" />
-        <beans:property name="devMode" value="true"/>
-    </beans:bean>
+    <!--<beans:bean id="closureTemplateConfigurer"-->
+          <!--class="co.uid.system.ClosureTemplate.ClosureTemplateConfigurer">-->
+        <!--<beans:property name="templatesLocation" value="/WEB-INF/templates" />-->
+        <!--<beans:property name="devMode" value="true"/>-->
+    <!--</beans:bean>-->
 
-    <beans:bean id="closureTemplateJSController" class="co.uid.system.ClosureTemplate.ClosureTemplateJavascriptController">
-    </beans:bean>
+    <!--<beans:bean id="closureTemplateJSController" class="co.uid.system.ClosureTemplate.ClosureTemplateJavascriptController">-->
+    <!--</beans:bean>-->
 
-    <beans:bean id="closureTemplateViewResolver"
-          class="co.uid.system.ClosureTemplate.ClosureTemplateViewResolver">
-        <beans:property name="cache" value="false" />
-    </beans:bean>
+    <!--<beans:bean id="closureTemplateViewResolver"-->
+          <!--class="co.uid.system.ClosureTemplate.ClosureTemplateViewResolver">-->
+        <!--<beans:property name="cache" value="false" />-->
+    <!--</beans:bean>-->
 
 </beans:beans>

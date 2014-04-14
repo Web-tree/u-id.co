@@ -1,5 +1,8 @@
 package co.uid.service;
 
+import co.uid.model.ItemImpl;
+import co.uid.repository.ItemRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,4 +12,19 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ItemService {
+    @Autowired
+    private ItemRepository repository;
+
+    public Long save(ItemImpl item) {
+        item = repository.save(item);
+        return item.getId();
+    }
+
+    public ItemImpl getItem(Long id) {
+        return repository.findOne(id);
+    }
+
+    public void delete(Long id) {
+        repository.delete(id);
+    }
 }
