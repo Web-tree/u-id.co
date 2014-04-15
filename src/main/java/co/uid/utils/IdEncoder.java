@@ -6,9 +6,9 @@ package co.uid.utils;
  *         created 14.04.2014
  */
 public class IdEncoder {
-    static char[] symbols = new char[] {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-//    static char[] symbols = new char[] {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-//            'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+//    static char[] symbols = new char[] {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    static char[] symbols = new char[] {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+            'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
     public static String encodeId(long id) {
         if (id < 0) {
@@ -60,6 +60,6 @@ public class IdEncoder {
     }
 
     private static Long calcDecodeSum(int multiplier, int pow) {
-        return new Double(multiplier * Math.pow(10, pow)).longValue();
+        return new Double(multiplier * Math.pow(symbols.length, pow)).longValue();
     }
 }

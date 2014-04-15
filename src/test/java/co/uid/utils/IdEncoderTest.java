@@ -24,7 +24,7 @@ public class IdEncoderTest {
     @Test
     public void testDecodeId() throws Exception {
         String currentString = String.valueOf(IdEncoder.symbols[0]);
-        int start = 0;
+        int start = 26;
         for (Long current = 0L, finish = 100000L; current < finish; current++) {
             if (start <= current) {
                 assertEquals(current, IdEncoder.decodeId(currentString));
