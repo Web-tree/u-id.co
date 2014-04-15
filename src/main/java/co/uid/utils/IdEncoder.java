@@ -31,39 +31,23 @@ public class IdEncoder {
 
     public static Long decodeId(String encodedId) {
         Long sum = 0L;
-        int stepRemaining = encodedId.length();
-        for (int i = 0; i < encodedId.length(); i++) {
-
-
+        for (int i = encodedId.length()-1; i > -1; i--) {
             char idChar = encodedId.charAt(i);
 
             boolean found = false;
             for (int j = 0; j < symbols.length; j++) {
                 if (symbols[j] == idChar) {
                     int charPosition;
-
-                    if (i > 1) {
-                        charPosition = j + 2;
-                    } else if (i  > 0) {
-                        charPosition = j + 1;
-                    } else {
+                    if (i == (encodedId.length() - 1)) {
                         charPosition = j;
+                    } else {
+                        charPosition = j + 1;
                     }
                     if (charPosition >= symbols.length) {
                         charPosition = charPosition - symbols.length;
-                        sum += calcDecodeSum(symbols.length-1, i);
+                        sum += calcDecodeSum(1, encodedId.length() - i);
                     }
-//                    stepRemaining--;
-//                    int multiplier;
-//                    if (i > 1) {
-//                        multiplier = j + 2;
-//                    } else if (i  > 0) {
-//                        multiplier = j + 1;
-//                    } else {
-//                        multiplier = j;
-//                    }
-                    sum += calcDecodeSum(charPosition, i);
-//                    sum += new Double(j * Math.pow(10, i)).longValue();
+                    sum += calcDecodeSum(charPosition, encodedId.length() - i - 1);
                     found = true;
                     break;
                 }
