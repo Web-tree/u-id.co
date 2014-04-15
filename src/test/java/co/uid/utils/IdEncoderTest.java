@@ -11,15 +11,31 @@ import static org.junit.Assert.*;
 public class IdEncoderTest {
     @Test
     public void testEncodeId() throws Exception {
-//        assertEquals("a", IdEncoder.encodeId(1L));
-//        assertEquals("b", IdEncoder.encodeId(2L));
-//        assertEquals("z", IdEncoder.encodeId(26L));
-//        assertEquals("aa", IdEncoder.encodeId(27L));
-        assertEquals("bz", IdEncoder.encodeId(78L));
+
+        String currentString = String.valueOf(IdEncoder.symbols[0]);
+        int start = 1;
+        for (long current = 0, finish = 10000; current < finish; current++) {
+            if (start <= current) {
+                System.out.println(current + ", " + currentString);
+                assertEquals(currentString, IdEncoder.encodeId(current));
+            }
+            currentString = next(currentString);
+        }
     }
 
     @Test
     public void testDecodeId() throws Exception {
 
+    }
+
+    private static String next(String s) {
+        int length = s.length();
+        char c = s.charAt(length - 1);
+
+        String firstSymbol = String.valueOf(IdEncoder.symbols[0]);
+        if(c == IdEncoder.symbols[IdEncoder.symbols.length - 1])
+            return length > 1 ? next(s.substring(0, length - 1)) + firstSymbol : firstSymbol+firstSymbol;
+
+        return s.substring(0, length - 1) + ++c;
     }
 }
