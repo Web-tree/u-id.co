@@ -3,7 +3,11 @@ package co.uid.service;
 import co.uid.model.ItemImpl;
 import co.uid.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import co.uid.model.Item;
+import co.uid.model.ItemImpl;
 import org.springframework.stereotype.Service;
+
+import javax.faces.bean.ManagedBean;
 
 /**
  * @author Max Levicky
@@ -11,7 +15,9 @@ import org.springframework.stereotype.Service;
  *         Time: 13:39
  */
 @Service
+@ManagedBean(name = "itemService")
 public class ItemService {
+
     @Autowired
     private ItemRepository repository;
 

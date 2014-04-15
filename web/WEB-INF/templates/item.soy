@@ -1,0 +1,30 @@
+{namespace co.uid.item}
+
+/**
+ *
+ */
+{template .edit}
+
+{/template}
+
+/**
+
+ */
+{template .add}
+    {call co.uid.card}
+        {param cardContent}
+            <form>
+//                <input type="text" name="name" value="{$item.name}" />
+//                <input type="text" name="name" placeholder="" value="{$item.description}" />
+                <input type="text" name="type" placeholder="Выберите тип">
+                <input type="submit" value="Создать" />
+            </form>
+        {/param}
+    {/call}
+{/template}
+/**
+ * @param item
+ */
+{template .view}
+    {$item.encodedId}
+{/template}

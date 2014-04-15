@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title>Testapp</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/css/main.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</h:head>
+<h:body>
+    <div class="container">
+        <div class="col-md-12">
+            <header>
+                <div class="navbar navbar-default">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">U-id.co</a>
+                    </div>
+                    <div class="navbar-collapse collapse navbar-responsive-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Login</a></li>
+                        </ul>
+                        <form class="navbar-form navbar-right">
+                            <input type="text" class="form-control" placeholder="Search" />
+                        </form>
+                    </div>
+
+                </div>
+            </header>
+
+            <div class="main">
+                <ui:insert name="mainContent" />
+            </div>
+
+            <footer>
+                footer
+            </footer>
+        </div>
+    </div>
+</h:body>
+</html>  

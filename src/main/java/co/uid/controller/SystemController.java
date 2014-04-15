@@ -1,10 +1,11 @@
 package co.uid.controller;
 
+import co.uid.model.Item;
+import co.uid.model.ItemImpl;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author Max Levicky
@@ -14,8 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class SystemController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String getItem() {
-        return "co.uid.main";
-
+    public String getItem(Model model) {
+        Item item = new ItemImpl();
+        model.addAttribute("item", item);
+        return "index";
     }
 }

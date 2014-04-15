@@ -39,11 +39,11 @@
                 <!--<beans:ref local="closureTemplateViewResolver"/>-->
             </beans:list>
         </beans:property>
-        <beans:property name="defaultViews">
-            <beans:list>
-                <beans:bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
-            </beans:list>
-        </beans:property>
+        <!--<beans:property name="defaultViews">-->
+            <!--<beans:list>-->
+                <!--<beans:bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />-->
+            <!--</beans:list>-->
+        <!--</beans:property>-->
     </beans:bean>
 
     <!--<beans:bean id="closureTemplateConfigurer"-->

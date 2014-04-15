@@ -20,11 +20,24 @@
 <div class="container">
     <div class="col-md-12">
         <header>
-            <div class="navbar navbar-default"></div>
+            <div class="navbar navbar-default">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">U-id.co</a>
+                </div>
+                <div class="navbar-collapse collapse navbar-responsive-collapse">
+                     <ul class="nav navbar-nav navbar-right">
+                         <li><a href="#">Login</a></li>
+                     </ul>
+                     <form class="navbar-form navbar-right">
+                         <input type="text" class="form-control" placeholder="Search">
+                     </form>
+                 </div>
+
+            </div>
         </header>
 
         <div class="main">
-            {$content}
+            {$content|noAutoescape}
         </div>
 
         <footer>

@@ -2,7 +2,17 @@
 
 /**
  * 
+ * @param cardContent {String}
+ *
  */
-{template .main}
-    Main page
+{template .card}
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="well">
+                {$cardContent|noAutoescape}
+            </div>
+        </div>
+
+    </div>
 {/template}
