@@ -11,9 +11,8 @@ import static org.junit.Assert.*;
 public class IdEncoderTest {
     @Test
     public void testEncodeId() throws Exception {
-
         String currentString = String.valueOf(IdEncoder.symbols[0]);
-        int start = 1;
+        int start = 0;
         for (long current = 0, finish = 100000; current < finish; current++) {
             if (start <= current) {
                 assertEquals(currentString, IdEncoder.encodeId(current));
@@ -24,7 +23,15 @@ public class IdEncoderTest {
 
     @Test
     public void testDecodeId() throws Exception {
-
+        String currentString = String.valueOf(IdEncoder.symbols[0]);
+        int start = 0;
+        for (Long current = 0L, finish = 1000000L; current < finish; current++) {
+            if (start <= current) {
+                System.out.println(current + ", " + currentString);
+                assertEquals(current, IdEncoder.decodeId(currentString));
+            }
+            currentString = next(currentString);
+        }
     }
 
     private static String next(String s) {

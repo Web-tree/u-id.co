@@ -6,8 +6,9 @@ package co.uid.utils;
  *         created 14.04.2014
  */
 public class IdEncoder {
-    public static char[] symbols = new char[] {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-            'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+    static char[] symbols = new char[] {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+//    static char[] symbols = new char[] {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+//            'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
     public static String encodeId(long id) {
         if (id < 0) {
@@ -17,13 +18,11 @@ public class IdEncoder {
         int step = 1;
         do {
             int modulo = (int) (id % (symbols.length));
-            if (step > 1) {
+            if (step++ > 1) {
                 modulo--;
                 id--;
             }
-            step++;
-            int resultChar = (modulo < 0) ? symbols.length + modulo : modulo;
-            encodedId.append(symbols[resultChar]);
+            encodedId.append(symbols[modulo < 0 ? symbols.length + modulo : modulo]);
             id = id / symbols.length;
         }
         while (id > 0);
@@ -31,15 +30,52 @@ public class IdEncoder {
     }
 
     public static Long decodeId(String encodedId) {
-        //        char[] stringId = String.valueOf(id).toCharArray();
-//        int currentPosition = stringId.length - 1;
-//        StringBuilder encodedId = new StringBuilder();
-//        for (char idChar : stringId) {
-//            int intCharId = Character.getNumericValue(idChar);
-//            if (intCharId > 0) {
-//                encodedId.append(symbols[(int) (intCharId * Math.pow(10, currentPosition--)) - 1]);
-//            }
-//        }
-        return 0L;
+        Long sum = 0L;
+        int stepRemaining = encodedId.length();
+        for (int i = 0; i < encodedId.length(); i++) {
+
+
+            char idChar = encodedId.charAt(i);
+
+            boolean found = false;
+            for (int j = 0; j < symbols.length; j++) {
+                if (symbols[j] == idChar) {
+                    int charPosition;
+
+                    if (i > 1) {
+                        charPosition = j + 2;
+                    } else if (i  > 0) {
+                        charPosition = j + 1;
+                    } else {
+                        charPosition = j;
+                    }
+                    if (charPosition >= symbols.length) {
+                        charPosition = charPosition - symbols.length;
+                        sum += calcDecodeSum(symbols.length-1, i);
+                    }
+//                    stepRemaining--;
+//                    int multiplier;
+//                    if (i > 1) {
+//                        multiplier = j + 2;
+//                    } else if (i  > 0) {
+//                        multiplier = j + 1;
+//                    } else {
+//                        multiplier = j;
+//                    }
+                    sum += calcDecodeSum(charPosition, i);
+//                    sum += new Double(j * Math.pow(10, i)).longValue();
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                throw new IllegalArgumentException("Given string with not used symbol");
+            }
+        }
+        return sum;
+    }
+
+    private static Long calcDecodeSum(int multiplier, int pow) {
+        return new Double(multiplier * Math.pow(10, pow)).longValue();
     }
 }
