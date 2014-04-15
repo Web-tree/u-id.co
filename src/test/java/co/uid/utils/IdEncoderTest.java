@@ -14,9 +14,8 @@ public class IdEncoderTest {
 
         String currentString = String.valueOf(IdEncoder.symbols[0]);
         int start = 1;
-        for (long current = 0, finish = 10000; current < finish; current++) {
+        for (long current = 0, finish = 100000; current < finish; current++) {
             if (start <= current) {
-                System.out.println(current + ", " + currentString);
                 assertEquals(currentString, IdEncoder.encodeId(current));
             }
             currentString = next(currentString);
