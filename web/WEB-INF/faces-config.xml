@@ -9,7 +9,7 @@
             <supported-locale>ru</supported-locale>
         </locale-config>
         <resource-bundle>
-            <base-name>co.uid.messages.messages</base-name>
+            <base-name>co.uid.messages.message</base-name>
             <var>msg</var>
         </resource-bundle>
     </application>
