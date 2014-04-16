@@ -34,6 +34,14 @@
             </header>
 
             <div class="main">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert">
+                            <h:outputText id="messages" value="#{systemController.messages}"/>
+                        </div>
+                    </div>
+                </div>
+
                 <ui:insert name="mainContent" />
             </div>
 
