@@ -14,7 +14,7 @@
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>file:${user.home}/thumanConf/main.properties</value>
+                <value>file:${user.home}/uidConf/main.properties</value>
                 <!--<value>file:${user.home}/thumanConf/jdbc.properties</value>-->
                 <!--<value>file:${user.home}/thumanConf/neo4j.properties</value>-->
             </list>

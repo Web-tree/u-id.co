@@ -8,15 +8,17 @@
                 xmlns:tp="http://java.sun.com/jsf/composite/">
     <ui:define name="mainContent">
         <uid:card>
-            <h:form id="addItem">
+            <h:form id="item">
+                <h:outputText id="messages" value="#{systemController.messages}"/>
                 <h:inputText id="name" styleClass="form-control" value="#{item.name}" >
-                    <f:validateLongRange minimum="5" maximum="20" />
+                    <f:validateLength minimum="5" maximum="20" />
                 </h:inputText>
+                <h:message for="name" />
                 <h:inputTextarea styleClass="form-control" value="#{item.description}" />
-                <h:commandButton action="#{item.add}" styleClass="btn btn-primary" value="#{msg['item.add.button.submit']}">
-                    <f:ajax render="output" />
+                <h:commandButton action="#{itemController.addItem(item)}" styleClass="btn btn-primary" value="#{msg['item.add.button.submit']}">
+                    <f:ajax execute="@form" render="messages" />
                 </h:commandButton>
-                <h:outputText id="output" />
+
             </h:form>
         </uid:card>
     </ui:define>

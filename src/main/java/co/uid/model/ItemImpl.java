@@ -1,13 +1,12 @@
 package co.uid.model;
 
-import javax.faces.bean.ManagedBean;
-
-import co.uid.controller.SystemController;
-import co.uid.utils.FaceRequest;
+import co.uid.utils.FaceContext;
 import co.uid.utils.IdEncoder;
 import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.Indexed;
 import org.springframework.data.neo4j.annotation.NodeEntity;
+
+import javax.faces.bean.ManagedBean;
 
 
 /**
@@ -57,7 +56,7 @@ public class ItemImpl implements Item {
     }
 
     public void add() {
-        String qwe = FaceRequest.getParam("");
+        String qwe = FaceContext.getRequestParam("");
     }
 
 }
