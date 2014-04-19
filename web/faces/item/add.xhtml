@@ -9,14 +9,15 @@
     <ui:define name="mainContent">
         <uid:card>
             <h:form id="item">
-
-                <h:inputText id="name" styleClass="form-control" value="#{item.name}" >
-                    <f:validateLength minimum="5" maximum="20" />
-                </h:inputText>
+                <div class="form-group#{component.findComponent('name').valid ? '' : ' has-error'}">
+                    <h:inputText id="name" styleClass="form-control" value="#{item.name}" required="true">
+                        <f:validateLength minimum="5" maximum="20" />
+                    </h:inputText>
+                </div>
                 <h:message for="name" />
                 <h:inputTextarea styleClass="form-control" value="#{item.description}" />
                 <h:commandButton action="#{itemController.addItem(item)}" styleClass="btn btn-primary" value="#{msg['item.add.button.submit']}">
-                    <f:ajax execute="@form" render=":messages" />
+                    <f:ajax execute="@form" render=":messages @form" />
                 </h:commandButton>
 
             </h:form>
