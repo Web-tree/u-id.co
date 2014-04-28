@@ -1915,7 +1915,7 @@ select[multiple].input-lg {
   background-color: #ff4136;
 }
 .has-error .form-control-feedback {
-  color: #ffffff;
+  color: #ff4136;
 }
 .form-control-static {
   margin-bottom: 0;

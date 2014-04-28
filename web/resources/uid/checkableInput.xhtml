@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+        >
+<composite:interface>
+    <composite:attribute name="inputId" />
+    <composite:attribute name="label" required="" />
+</composite:interface>
+<composite:implementation>
+    <div class="form-group#{component.findComponent(cc.attrs.inputId).valid ? '' : ' has-error has-feedback'}">
+        <label class="control-label" for="#{cc.attrs.inputId}">#{cc.attrs.label}</label>
+        <composite:insertChildren />
+        <ui:fragment rendered="#{!component.findComponent(cc.attrs.inputId).valid}">
+            <span class="glyphicon glyphicon-remove form-control-feedback" />
+            <div class="alert alert-dismissable alert-danger">
+                <h:message for="#{cc.attrs.inputId}" />
+            </div>
+        </ui:fragment>
+
+    </div>
+</composite:implementation>
+</html>

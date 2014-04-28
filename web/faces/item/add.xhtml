@@ -5,22 +5,29 @@
                 xmlns:uid="http://java.sun.com/jsf/composite/uid"
                 xmlns:f="http://java.sun.com/jsf/core"
                 template="/faces/layout/main.xhtml"
+                xmlns:p="http://primefaces.org/ui"
                 xmlns:tp="http://java.sun.com/jsf/composite/">
     <ui:define name="mainContent">
-        <uid:card>
+        <uid:card >
             <h:form id="item">
-                <div class="form-group#{component.findComponent('name').valid ? '' : ' has-error'}">
-                    <h:inputText id="name" styleClass="form-control" value="#{item.name}" required="true">
-                        <f:validateLength minimum="5" maximum="20" />
-                    </h:inputText>
-                </div>
-                <h:message for="name" />
-                <h:inputTextarea styleClass="form-control" value="#{item.description}" />
-                <h:commandButton action="#{itemController.addItem(item)}" styleClass="btn btn-primary" value="#{msg['item.add.button.submit']}">
-                    <f:ajax execute="@form" render=":messages @form" />
-                </h:commandButton>
+                <uid:checkableInput inputId="name" label="#{msg['item.add.field.name']}">
+                    <p:inputText id="name" styleClass="form-control" value="#{itemController.item.name}" required="true">
+                        <p:clientValidator event="keyup" />
+                    </p:inputText>
+                </uid:checkableInput>
+                <uid:checkableInput inputId="description" label="#{msg['item.add.field.description']}">
+                    <h:inputTextarea id="description" styleClass="form-control" value="#{itemController.item.description}" />
+                </uid:checkableInput>
 
+                <p:commandButton action="#{itemController.saveItem}" styleClass="btn btn-primary"
+                                 value="#{msg['item.add.button.submit']}">
+                    <f:ajax execute="@form" render="@form" />
+                </p:commandButton>
             </h:form>
         </uid:card>
+        <p:inputText id="text" value="#{itemController.item.description}" required="true">
+            <f:validateLength minimum="2" maximum="5" />
+            <p:clientValidator event="keyup" />
+        </p:inputText>
     </ui:define>
 </ui:composition>

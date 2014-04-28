@@ -39,8 +39,7 @@ public class ItemServiceTest {
         assertEquals(newName, item.getName());
         assertEquals(newName, service.getItem(id).getName());
 
-//        service.delete(id);
-
+        service.delete(id);
         assertNull(service.getItem(id));
     }
 

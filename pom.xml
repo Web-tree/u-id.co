@@ -139,21 +139,30 @@
 
         <!--Java faces-->
 
-        <!--<dependency>-->
-            <!--<groupId>com.sun.faces</groupId>-->
-            <!--<artifactId>jsf-api</artifactId>-->
-            <!--<version>2.1.7</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>com.sun.faces</groupId>-->
-            <!--<artifactId>jsf-impl</artifactId>-->
-            <!--<version>2.1.7</version>-->
-        <!--</dependency>-->
         <dependency>
-            <groupId>org.glassfish</groupId>
-            <artifactId>javax.faces</artifactId>
-            <version>2.1.7</version>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>2.2.6</version>
+            <scope>provided</scope>
+
         </dependency>
+        <dependency>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-impl</artifactId>
+            <version>2.2.6</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.el</groupId>
+            <artifactId>el-ri</artifactId>
+            <version>1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.glassfish</groupId>-->
+            <!--<artifactId>javax.faces</artifactId>-->
+            <!--<version>2.1.7</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>org.apache.tomcat</groupId>
@@ -163,11 +172,11 @@
         </dependency>
 
         <!--Pretty faces-->
-        <dependency>
-            <groupId>com.ocpsoft</groupId>
-            <artifactId>prettyfaces-jsf2</artifactId>
-            <version>3.3.3</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.ocpsoft</groupId>-->
+            <!--<artifactId>prettyfaces-jsf2</artifactId>-->
+            <!--<version>3.3.3</version>-->
+        <!--</dependency>-->
         <!--/Pretty faces-->
 
         <!--<dependency>-->
@@ -226,16 +235,35 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>4.0</version>
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>org.primefaces.themes</groupId>-->
+            <!--<artifactId>bootstrap</artifactId>-->
+            <!--<version>1.0.10</version>-->
+        <!--</dependency>-->
+
 
     </dependencies>
 
-    <!--<repositories>-->
+
+    <repositories>
+        <repository>
+            <id>prime-repo</id>
+            <name>PrimeFaces Maven Repository</name>
+            <url>http://repository.primefaces.org</url>
+            <layout>default</layout>
+        </repository>
         <!--<repository>-->
             <!--<id>central</id>-->
             <!--<name>Central</name>-->
             <!--<url>http://repo1.maven.org/maven2</url>-->
         <!--</repository>-->
-    <!--</repositories>-->
+    </repositories>
 
     <build>
         <plugins>

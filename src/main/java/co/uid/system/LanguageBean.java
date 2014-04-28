@@ -1,5 +1,7 @@
 package co.uid.system;
 
+import sun.util.locale.BaseLocale;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -25,6 +27,7 @@ public class LanguageBean implements Serializable {
     static{
         countries = new LinkedHashMap<>();
         countries.put("English", Locale.ENGLISH); //label, value
+        countries.put("Русский", new Locale("ru"));
     }
 
     public Map<String, Object> getCountriesInMap() {

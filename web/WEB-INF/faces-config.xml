@@ -9,8 +9,14 @@
             <supported-locale>ru</supported-locale>
         </locale-config>
         <resource-bundle>
-            <base-name>co.uid.messages.message</base-name>
+            <base-name>co.uid.messages.messages</base-name>
             <var>msg</var>
         </resource-bundle>
+        <message-bundle>co.uid.messages.messages</message-bundle>
+    </application>
+    <application>
+        <el-resolver>
+            org.springframework.web.jsf.el.SpringBeanFacesELResolver
+        </el-resolver>
     </application>
 </faces-config>

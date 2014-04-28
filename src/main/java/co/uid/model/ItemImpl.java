@@ -15,7 +15,6 @@ import javax.faces.bean.ManagedBean;
  *         Time: 12:21
  */
 @NodeEntity
-@ManagedBean(name = "item")
 public class ItemImpl implements Item {
     @GraphId
     private Long id;
@@ -23,7 +22,7 @@ public class ItemImpl implements Item {
     @Indexed
     private String name;
 
-    @Indexed
+//    @Indexed
     private String description;
 
 

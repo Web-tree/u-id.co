@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
     <title>Testapp</title>
@@ -10,10 +11,11 @@
     <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="/css/main.css" rel="stylesheet" type="text/css" media="screen" />
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <!--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.min.js"></script>-->
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 </h:head>
 <h:body>
+    <p:growl autoUpdate="true"/>
     <div class="container">
         <div class="col-md-12">
             <header>
@@ -26,7 +28,7 @@
                             <li><a href="#">#{msg['layout.main.login.link']}</a></li>
                         </ul>
                         <form class="navbar-form navbar-right">
-                            <input type="text" class="form-control" placeholder="Search" />
+                            <input type="text" class="form-control" placeholder="#{msg['layout.main.search.placeholder']}" />
                         </form>
                     </div>
 
@@ -34,21 +36,18 @@
             </header>
 
             <div class="main">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="alert">
-                            <h:outputText id="messages" value="#{systemController.messages}"/>
-                        </div>
-                    </div>
-                </div>
-
                 <ui:insert name="mainContent" />
             </div>
 
             <footer>
-                footer
+                <h:form id="langChanger">
+                    <h:selectOneMenu value="#{language.localeCode}" onchange="submit()"
+                                     valueChangeListener="#{language.countryLocaleCodeChanged}">
+                        <f:selectItems value="#{language.countriesInMap}" />
+                    </h:selectOneMenu>
+                </h:form>
             </footer>
         </div>
     </div>
 </h:body>
-</html>  
+</html>
