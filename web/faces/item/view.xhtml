@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:uid="http://java.sun.com/jsf/composite/uid"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/faces/layout/main.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:tp="http://java.sun.com/jsf/composite/">
+    <ui:define name="mainContent">
+        <ui:param name="item" value="#{itemController.getItemByEncodedId(param.encodedId)}"/>
+        <uid:card colSize="12" header="#{item.name}">
+            <p:outputLabel value="#{item.description}"/>
+        </uid:card>
+    </ui:define>
+</ui:composition>

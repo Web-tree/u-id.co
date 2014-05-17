@@ -4,16 +4,16 @@
                       http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 
     <url-mapping id="home">
-        <pattern value="/qwe" />
+        <pattern value="/" />
         <view-id value="/faces/index.xhtml" />
     </url-mapping>
     <url-mapping id="item/add">
-        <pattern value="/item/add" />
+        <pattern value="/!item/add" />
         <view-id value="/faces/item/add.xhtml" />
     </url-mapping>
-    <url-mapping id="item/addSuccess">
-        <pattern value="/item/add" />
-        <view-id value="/faces/item/addSuccess.xhtml" />
+    <url-mapping id="item/">
+        <pattern value="/#{encodedId}" />
+        <view-id value="/faces/item/view.xhtml" />
     </url-mapping>
 
 </pretty-config>

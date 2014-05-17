@@ -19,12 +19,14 @@ public class ItemImpl implements Item {
     @GraphId
     private Long id;
 
-    @Indexed
+//    @Indexed
     private String name;
 
 //    @Indexed
     private String description;
 
+    public ItemImpl() {
+    }
 
     public Long getId() {
         return id;

@@ -1,21 +1,17 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:uid="http://java.sun.com/jsf/composite/uid"
+                xmlns:uid="http://java.sun.com/jsf/composite/uid" xmlns:p="http://java.sun.com/jsf/html"
                 template="/faces/layout/main.xhtml"
                 xmlns:tp="http://java.sun.com/jsf/composite/">
 
     <ui:define name="mainContent">
         <div class="row">
-            <uid:card>qwe</uid:card>
-            <uid:card>qwe</uid:card>
-            <uid:card>qwe</uid:card>
-            <uid:card>qwe</uid:card>
-            <uid:card>qwe</uid:card>
-            <uid:card>qwe</uid:card>
-            <uid:card>
-                asd
-            </uid:card>
+            <ui:repeat value="#{itemController.items.content}" var="item">
+                <uid:card>
+                    <h:outputLink value="/#{item.getEncodedId()}">#{item.name}</h:outputLink>
+                </uid:card>
+            </ui:repeat>
         </div>
     </ui:define>
 </ui:composition>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:composite="http://java.sun.com/jsf/composite" xmlns:ui="http://java.sun.com/jsf/facelets"
         >
 <composite:interface>
     <composite:attribute name="content" />
@@ -12,6 +12,10 @@
 <composite:implementation>
     <div class="col-md-#{cc.attrs.colSize}">
         <div class="well">
+            <ui:fragment rendered="#{not empty cc.attrs.header}">
+                <h2>#{cc.attrs.header}</h2>
+            </ui:fragment>
+            #{cc.attrs.content}
             <composite:insertChildren />
         </div>
     </div>
