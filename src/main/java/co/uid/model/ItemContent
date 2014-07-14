@@ -1,0 +1,12 @@
+package co.uid.model;
+
+import org.springframework.data.neo4j.annotation.NodeEntity;
+
+/**
+ * @author Max Levicky
+ *         Date: 29.03.2014
+ *         Time: 12:21
+ */
+@NodeEntity
+public interface ItemContent extends Model {
+}
