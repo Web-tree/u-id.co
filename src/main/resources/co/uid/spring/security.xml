@@ -6,12 +6,15 @@
              http://www.springframework.org/schema/security
              http://www.springframework.org/schema/security/spring-security.xsd">
 
-    <http auto-config="true" access-denied-page="/error403.jsp" access-decision-manager-ref="accessDecisionManager">
-        <form-login login-page="http://${url.base}/login/" default-target-url="/"
-                    authentication-failure-url="http://${url.base}/login?error=true"/>
+    <http auto-config="true" access-denied-page="/!403" use-expressions="true">
+        <form-login login-page="http://${url.base}/!login" default-target-url="/"
+                    authentication-failure-url="http://${url.base}/!login?error=true"/>
         <logout logout-url="/logout" logout-success-url="/"/>
         <anonymous username="guest" granted-authority="ROLE_ANONYMOUS"/>
         <remember-me user-service-ref="userService" />
+
+        <intercept-url pattern="/!login" access="ROLE_ANONYMOUS" />
+        <intercept-url pattern="/!**/**" access="hasAnyRole('ROLE_USER')" />
     </http>
 
     <global-method-security secured-annotations="enabled"/>

@@ -16,4 +16,9 @@
         <view-id value="/faces/item/view.xhtml" />
     </url-mapping>
 
+    <url-mapping id="item/">
+        <pattern value="/#{encodedId}" />
+        <view-id value="/faces/item/view.xhtml" />
+    </url-mapping>
+
 </pretty-config>

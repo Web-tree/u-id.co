@@ -23,7 +23,26 @@ public class User implements Model, UserDetails {
     @Indexed
     private String password;
 
-    private int role;
+    private int roleId;
+
+    private ROLE role;
+
+    public static enum ROLE {
+        ANONYMOUS(0), USER(1), EDITOR(2), ADMIN(3);
+        private int id;
+
+        private ROLE(int id) {
+            this.id = id;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public String getRoleName() {
+            return "ROLE_" + toString();
+        }
+    }
 
     public Long getId() {
         return id;
@@ -39,22 +58,22 @@ public class User implements Model, UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
     public void setUsername(String username) {
@@ -66,7 +85,7 @@ public class User implements Model, UserDetails {
         Collection<GrantedAuthority> auth = new ArrayList<>();
         auth.add(() -> {
             String authority;
-            switch (role) {
+            switch (roleId) {
                 case 1:
                     authority = "ROLE_USER";
                     break;
@@ -89,11 +108,19 @@ public class User implements Model, UserDetails {
         this.password = password;
     }
 
-    public int getRole() {
+    public int getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
+    }
+
+    public ROLE getRole() {
         return role;
     }
 
-    public void setRole(int role) {
+    public void setRole(ROLE role) {
         this.role = role;
     }
 }

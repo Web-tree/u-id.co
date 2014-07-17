@@ -8,6 +8,7 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:tp="http://java.sun.com/jsf/composite/">
     <ui:define name="mainContent">
+        <!--@elvariable id="item" type="co.uid.model.Item"-->
         <ui:param name="item" value="#{itemController.getItemByEncodedId(param.encodedId)}"/>
         <uid:card colSize="12" header="#{item.name}">
             <p:outputLabel value="#{item.description}"/>
